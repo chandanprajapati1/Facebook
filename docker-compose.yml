@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nextjs:
+    build: .
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: facebook
+    ports:
+      - '3306:3306'
